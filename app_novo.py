@@ -3,10 +3,6 @@ import pandas as pd
 import joblib
 
 
-# =========================================================
-# CARREGAMENTO
-# =========================================================
-
 dados = pd.read_csv(
     'https://raw.githubusercontent.com/LuFeMa33/PosTech_DataVizProductModels/refs/heads/main/Obesity.csv'
 )
@@ -16,10 +12,6 @@ modelo = joblib.load('modelo_gradient_boosting.joblib')
 colunas_modelo = joblib.load('colunas_modelo.joblib')
 
 
-# =========================================================
-# TÍTULO
-# =========================================================
-
 st.title('🔎 Verificador de Obesidade')
 
 st.write(
@@ -27,10 +19,6 @@ st.write(
     'realize a classificação.'
 )
 
-
-# =========================================================
-# ENTRADAS DO USUÁRIO
-# =========================================================
 
 st.write('### Idade')
 
@@ -245,10 +233,6 @@ input_meio_transporte = st.selectbox(
 )
 
 
-# =========================================================
-# CRIAÇÃO DO DATAFRAME
-# =========================================================
-
 dados_usuario = pd.DataFrame({
     'Idade': [input_idade],
     'Altura': [input_altura],
@@ -296,12 +280,6 @@ dados_usuario = pd.DataFrame({
 })
 
 
-# =========================================================
-# ONE-HOT ENCODING
-# =========================================================
-
-# Lanches
-
 dados_usuario[
     'consumo_lanches_entre_refeicoes_Frequently'
 ] = (
@@ -321,8 +299,6 @@ dados_usuario[
 )
 
 
-# Álcool
-
 dados_usuario[
     'consumo_alcool_Frequently'
 ] = (
@@ -341,8 +317,6 @@ dados_usuario[
     1 if input_consumo_bebidas_alcoolicas == 'no' else 0
 )
 
-
-# Meio de transporte
 
 dados_usuario[
     'meio_transporte_Bike'
@@ -369,34 +343,22 @@ dados_usuario[
 )
 
 
-# =========================================================
-# ORGANIZAÇÃO DAS FEATURES
-# =========================================================
-
 dados_usuario = dados_usuario.reindex(
     columns=colunas_modelo,
     fill_value=0
 )
 
 
-# =========================================================
-# CLASSES
-# =========================================================
-
 classes_obesidade = {
-    0: 'Insufficient_Weight',
-    1: 'Normal_Weight',
-    2: 'Obesity_Type_I',
-    3: 'Obesity_Type_II',
-    4: 'Obesity_Type_III',
-    5: 'Overweight_Level_I',
-    6: 'Overweight_Level_II'
+    0: 'Peso Insuficiente',
+    1: '✔ Peso Normal',
+    2: '🟡Obesidade Tipo I',
+    3: '🟡Obesidade Tipo II',
+    4: '🔴Obesidade Tipo III',
+    5: '🟠Sobrepeso Nível I',
+    6: '🟥Sobrepeso Nível II'
 }
 
-
-# =========================================================
-# PREVISÃO
-# =========================================================
 
 if st.button('🔎 Verificar'):
 
@@ -415,13 +377,10 @@ if st.button('🔎 Verificar'):
     )
 
     st.metric(
-        'Confiança do modelo',
+        'Probabilidade de Obesidade',
         f'{confianca:.2%}'
     )
 
-    # ---------------------------------------------
-    # Probabilidades
-    # ---------------------------------------------
 
     resultado_probabilidades = pd.DataFrame({
         'Classe': [
