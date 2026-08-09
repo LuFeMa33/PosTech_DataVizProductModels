@@ -205,7 +205,7 @@ PosTech_DataVizProductModels/
 └── imagens/
     └── ...
 
-⚙️ Tecnologias utilizadas
+## ⚙️ Tecnologias utilizadas
 Python 3.12
 Pandas
 NumPy
@@ -216,7 +216,7 @@ Jupyter Notebook
 Git
 GitHub
 
-📌 Principais versões utilizadas
+## 📌 Principais versões utilizadas
 
 O modelo foi treinado e posteriormente disponibilizado utilizando as seguintes versões:
 Python:       3.12.13
