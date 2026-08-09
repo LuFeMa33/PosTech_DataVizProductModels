@@ -10,7 +10,7 @@
 
 ## 🚀 Aplicação
 
-**[👉 Acessar o Verificador de Obesidade](LINK_DA_APLICACAO_STREAMLIT)**
+**[👉 Acessar o Verificador de Obesidade](https://verificador-obesidade.streamlit.app/)**
 
 ---
 
