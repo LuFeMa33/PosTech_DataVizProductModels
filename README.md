@@ -226,3 +226,56 @@ Joblib:       1.5.3
 
 As versões de NumPy, Scikit-learn e Joblib foram fixadas no requirements.txt para manter a compatibilidade com o modelo serializado.
 
+Por favor, inclua mais essas partes:
+
+
+
+## ☁️ Deploy
+
+A aplicação foi preparada para publicação utilizando o **Streamlit Community Cloud**.
+
+O arquivo `requirements.txt` contém as dependências necessárias para reprodução do ambiente utilizado no desenvolvimento.
+
+---
+
+## ⚠️ Limitações
+
+Apesar do bom desempenho obtido no conjunto de teste, este projeto possui algumas limitações.
+
+O modelo foi desenvolvido utilizando um dataset específico e seu desempenho pode variar quando aplicado a indivíduos ou populações diferentes das representadas na base de treinamento.
+
+Uma aplicação em ambiente real exigiria:
+
+- Validação com dados independentes;
+- Avaliação de generalização;
+- Monitoramento contínuo do modelo;
+- Avaliação de possíveis vieses;
+- Validação estatística adicional;
+- Avaliação por profissionais especializados;
+- Cuidados relacionados à privacidade e proteção de dados.
+
+Portanto, os resultados apresentados pela aplicação possuem **finalidade acadêmica e experimental**.
+
+---
+
+## 👨‍💻 Autor
+
+### Luiz Felipe Marinho
+
+Projeto desenvolvido como parte da pós-graduação em **Data Analytics**.
+
+---
+
+## 📚 Observação acadêmica
+
+Este projeto teve como objetivo aplicar, de forma prática, conceitos de:
+
+- Análise exploratória de dados;
+- Engenharia de atributos;
+- Pré-processamento;
+- Machine Learning supervisionado;
+- Classificação multiclasse;
+- Avaliação de modelos;
+- Serialização de modelos;
+- Desenvolvimento de aplicações com Streamlit;
+- Deploy de aplicações de Machine Learning.
