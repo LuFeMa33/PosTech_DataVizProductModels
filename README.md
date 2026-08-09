@@ -1,38 +1,43 @@
-# Verificador de Obesidade — Machine Learning
+# 🧠 Verificador de Obesidade — Machine Learning
 
-Projeto desenvolvido como parte da pós-graduação em Data Analytics, com o objetivo de aplicar técnicas de Machine Learning para classificação de diferentes níveis relacionados ao peso corporal.
+![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-red?logo=streamlit)
+![Scikit Learn](https://img.shields.io/badge/Scikit--learn-1.6.1-orange?logo=scikit-learn)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas)
+![Status](https://img.shields.io/badge/Status-Concluído-success)
 
-A aplicação utiliza um modelo de Machine Learning treinado a partir de dados comportamentais e características físicas do indivíduo e disponibiliza uma interface interativa desenvolvida em Streamlit.
+> Projeto acadêmico desenvolvido durante a pós-graduação em Data Analytics.
 
----
+## 🚀 Aplicação
 
-## Objetivo
-
-O objetivo do projeto é desenvolver um modelo capaz de classificar um indivíduo em uma das seguintes categorias:
-
-- Peso insuficiente
-- Peso normal
-- Sobrepeso Nível I
-- Sobrepeso Nível II
-- Obesidade Tipo I
-- Obesidade Tipo II
-- Obesidade Tipo III
-
-A classificação é realizada a partir de características físicas, hábitos alimentares, atividade física e outros comportamentos relacionados ao estilo de vida.
-
-> **Importante:** este projeto possui finalidade acadêmica e não deve ser utilizado como ferramenta de diagnóstico médico.
+**[👉 Acessar o Verificador de Obesidade](LINK_DA_APLICACAO_STREAMLIT)**
 
 ---
 
-## Dataset
+## 🎯 Objetivo
 
-Foi utilizado o dataset **Obesity Dataset**, contendo informações relacionadas a características físicas e comportamentais dos indivíduos.
+Este projeto tem como objetivo desenvolver um modelo de Machine Learning capaz de classificar indivíduos em diferentes categorias relacionadas ao estado nutricional, utilizando características físicas e comportamentais.
+
+A aplicação permite que o usuário informe seus dados e receba:
+
+- Categoria prevista pelo modelo;
+- Confiança da previsão;
+- Probabilidade estimada para cada uma das sete categorias.
+
+> ⚠️ **Aviso:** este projeto possui finalidade exclusivamente acadêmica. Os resultados não devem ser utilizados como diagnóstico médico ou substituição de avaliação realizada por profissionais de saúde.
+
+---
+
+## 📊 Dataset
+
+Foi utilizado o **Obesity Dataset**, contendo informações relacionadas às características físicas, hábitos alimentares, atividade física e outros comportamentos dos indivíduos.
 
 Entre as variáveis utilizadas estão:
 
 - Idade
 - Altura
 - Peso
+- Gênero
 - Histórico familiar de obesidade
 - Consumo de alimentos altamente calóricos
 - Frequência de consumo de vegetais
@@ -42,98 +47,149 @@ Entre as variáveis utilizadas estão:
 - Monitoramento do consumo de calorias
 - Frequência de atividade física
 - Tempo de utilização de dispositivos eletrônicos
-- Gênero
 - Consumo de lanches entre refeições
 - Consumo de bebidas alcoólicas
 - Meio de transporte
 
 ---
 
-## Tratamento dos dados
+## 🔎 Tratamento dos dados
 
-Durante o processo de preparação dos dados foram realizadas algumas etapas de tratamento:
+Durante o desenvolvimento foram realizadas etapas de análise exploratória e preparação dos dados para Machine Learning.
 
-- Conversão de variáveis categóricas em variáveis numéricas;
-- Aplicação de One-Hot Encoding em variáveis categóricas;
-- Criação de índices para algumas variáveis;
-- Tratamento das variáveis booleanas;
+Entre os procedimentos realizados:
+
+- Análise exploratória dos dados;
 - Análise da distribuição das variáveis;
 - Análise de correlação;
-- Avaliação de possíveis outliers;
+- Avaliação de valores discrepantes;
+- Conversão de variáveis categóricas;
+- Aplicação de One-Hot Encoding;
+- Conversão de variáveis booleanas para valores numéricos;
+- Criação de índices para algumas variáveis;
 - Separação dos dados em conjuntos de treinamento e teste.
 
-A variável **IMC** foi inicialmente calculada durante a análise exploratória, porém posteriormente retirada das variáveis utilizadas no treinamento do modelo, evitando que uma variável diretamente derivada de peso e altura influenciasse excessivamente a classificação.
+### IMC
+
+Durante a análise exploratória, foi calculado o Índice de Massa Corporal (IMC) a partir das variáveis de peso e altura.
+
+Entretanto, o IMC não foi utilizado no treinamento do modelo final. A decisão foi tomada porque o IMC é diretamente derivado de peso e altura e apresentou forte relação com a variável alvo.
+
+Dessa forma, o modelo final utiliza as demais características disponíveis na base, sem incluir o IMC como variável de entrada.
 
 ---
 
-## Modelos avaliados
+## 🤖 Modelos avaliados
 
-Foram avaliados diferentes algoritmos de classificação, incluindo:
+Foram testados diferentes algoritmos de classificação:
 
 - Decision Tree
 - K-Nearest Neighbors (KNN)
 - Gradient Boosting Classifier
 
-Após a avaliação dos resultados, o modelo selecionado para a aplicação foi o:
-
-### Gradient Boosting Classifier
-
-O modelo apresentou desempenho superior aos demais modelos avaliados no conjunto de teste.
-
-### Resultado
-
-**Acurácia aproximada: 97%**
-
-Além da classe prevista, a aplicação apresenta as probabilidades estimadas pelo modelo para cada uma das sete categorias.
+Após a comparação dos resultados, o **Gradient Boosting Classifier** foi selecionado para a aplicação.
 
 ---
 
-## Importância das variáveis
+## 📈 Resultado do modelo
 
-Entre as variáveis que apresentaram maior importância para o modelo estão:
+O Gradient Boosting apresentou **aproximadamente 97% de acurácia no conjunto de teste** utilizado neste projeto.
 
-1. Peso
-2. Altura
-3. Frequência de consumo de vegetais
-4. Índice de gênero
-5. Idade
-6. Consumo de bebidas alcoólicas
-7. Consumo de água
-8. Frequência de atividade física
+Esse resultado foi superior ao desempenho observado nos demais modelos avaliados.
 
-A variável **Peso** apresentou a maior importância entre as features utilizadas pelo modelo.
+Além da acurácia, foram analisadas métricas como:
 
----
+- Precision
+- Recall
+- F1-score
+- Matriz de confusão
 
-## Aplicação
+### Classification Report
 
-A aplicação foi desenvolvida utilizando **Streamlit**.
+O modelo apresentou desempenho elevado nas sete classes avaliadas, com destaque para as categorias:
 
-O usuário fornece informações como:
+- Obesity Type III
+- Obesity Type II
+- Overweight Level I
+- Overweight Level II
 
-- Idade
-- Gênero
-- Altura
-- Peso
-- Histórico familiar
-- Hábitos alimentares
-- Consumo de água
-- Atividade física
-- Tabagismo
-- Consumo de álcool
-- Meio de transporte
+A análise detalhada das métricas pode ser encontrada nos notebooks disponíveis neste repositório.
 
-Após o preenchimento, o modelo realiza a classificação e apresenta:
-
-- Categoria prevista;
-- Confiança da previsão;
-- Probabilidade estimada para cada categoria.
+> **Importante:** a acurácia apresentada corresponde ao conjunto de teste utilizado durante o desenvolvimento. Esse resultado não representa necessariamente o desempenho do modelo em dados reais ou em uma população diferente daquela representada pelo dataset.
 
 ---
 
-## Estrutura do projeto
+## 🌳 Importância das variáveis
+
+A análise da importância das features indicou que as variáveis com maior influência na classificação foram:
+
+| Variável | Importância aproximada |
+|---|---:|
+| Peso | 55,70% |
+| Altura | 11,05% |
+| Frequência de consumo de vegetais | 10,28% |
+| Índice de gênero | 7,65% |
+| Idade | 3,34% |
+| Consumo de álcool | 2,83% |
+| Consumo de água | 2,52% |
+| Frequência de atividade física | 1,49% |
+
+O **peso** foi a variável de maior importância no modelo, seguido pela altura e pela frequência de consumo de vegetais.
+
+---
+
+## 🖥️ Aplicação Streamlit
+
+A interface da aplicação foi desenvolvida utilizando Streamlit.
+
+O usuário fornece informações sobre:
+
+- Idade;
+- Gênero;
+- Altura;
+- Peso;
+- Histórico familiar;
+- Consumo de alimentos altamente calóricos;
+- Consumo de vegetais;
+- Número de refeições;
+- Consumo de lanches;
+- Tabagismo;
+- Consumo de água;
+- Monitoramento de calorias;
+- Atividade física;
+- Tempo utilizando dispositivos eletrônicos;
+- Consumo de bebidas alcoólicas;
+- Meio de transporte.
+
+Após o preenchimento, o modelo realiza a classificação e apresenta a categoria mais provável.
+
+A aplicação também apresenta a distribuição das probabilidades entre todas as categorias.
+
+---
+
+## 🧠 Funcionamento do modelo
+
+O fluxo simplificado da aplicação é:
 
 ```text
+Dados do usuário
+       ↓
+Tratamento das variáveis
+       ↓
+Conversão para o formato utilizado no treinamento
+       ↓
+Organização das 23 features
+       ↓
+Gradient Boosting Classifier
+       ↓
+Predição
+       ↓
+Probabilidade por categoria
+       ↓
+Resultado apresentado no Streamlit
+
+📁 Estrutura do projeto
+
 PosTech_DataVizProductModels/
 │
 ├── app_novo.py
@@ -148,3 +204,25 @@ PosTech_DataVizProductModels/
 │
 └── imagens/
     └── ...
+
+⚙️ Tecnologias utilizadas
+Python 3.12
+Pandas
+NumPy
+Scikit-learn
+Joblib
+Streamlit
+Jupyter Notebook
+Git
+GitHub
+
+📌 Principais versões utilizadas
+
+O modelo foi treinado e posteriormente disponibilizado utilizando as seguintes versões:
+Python:       3.12.13
+NumPy:        2.0.2
+Scikit-learn: 1.6.1
+Joblib:       1.5.3
+
+As versões de NumPy, Scikit-learn e Joblib foram fixadas no requirements.txt para manter a compatibilidade com o modelo serializado.
+
