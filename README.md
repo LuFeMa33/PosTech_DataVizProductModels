@@ -187,9 +187,13 @@ Predição
 Probabilidade por categoria
        ↓
 Resultado apresentado no Streamlit
+```
 
-📁 Estrutura do projeto
+---
 
+## 📁 Estrutura do projeto
+
+```text
 PosTech_DataVizProductModels/
 │
 ├── app_novo.py
@@ -204,31 +208,36 @@ PosTech_DataVizProductModels/
 │
 └── imagens/
     └── ...
+```
+
+---
 
 ## ⚙️ Tecnologias utilizadas
-Python 3.12
-Pandas
-NumPy
-Scikit-learn
-Joblib
-Streamlit
-Jupyter Notebook
-Git
-GitHub
+
+- Python 3.12
+- Pandas
+- NumPy
+- Scikit-learn
+- Joblib
+- Streamlit
+- Jupyter Notebook
+- Git
+- GitHub
+
+---
 
 ## 📌 Principais versões utilizadas
 
 O modelo foi treinado e posteriormente disponibilizado utilizando as seguintes versões:
-Python:       3.12.13
-NumPy:        2.0.2
-Scikit-learn: 1.6.1
-Joblib:       1.5.3
 
-As versões de NumPy, Scikit-learn e Joblib foram fixadas no requirements.txt para manter a compatibilidade com o modelo serializado.
+- Python: 3.12.13
+- NumPy: 2.0.2
+- Scikit-learn: 1.6.1
+- Joblib: 1.5.3
 
-Por favor, inclua mais essas partes:
+As versões de NumPy, Scikit-learn e Joblib foram fixadas no `requirements.txt` para manter a compatibilidade com o modelo serializado.
 
-
+---
 
 ## ☁️ Deploy
 
