@@ -204,10 +204,7 @@ PosTech_DataVizProductModels/
 ├── README.md
 │
 ├── notebooks/
-│   └── ...
-│
-└── imagens/
-    └── ...
+│   └── analise.ipynb
 ```
 
 ---
